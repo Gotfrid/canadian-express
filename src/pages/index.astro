@@ -1,14 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Card from "../components/Card.astro";
+import { Grid } from "../components/Grid";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Canadian Express">
   <main>
     <h1>
       <span class="text-gradient">Canadian Express</span>
     </h1>
-    <p class="instructions">
+    <p>
       This dashboard provides a convinient and user-friendly access to the latest invitation stats of the
       <a
         href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html"
@@ -17,16 +18,7 @@ import Card from "../components/Card.astro";
         Canadian Express Entry</a
       > programm.
     </p>
-    <!-- TODO: entire section should be a react component -->
-    <section class="grid">
-      <Card title="DATE" body="Last update date" />
-      <Card title="Chart" body="Bar chart of latest distribution" />
-      <Card title="Chart" body="Line plot of scores" />
-      <Card title="TODO" body="Something else" />
-    </section>
-    <section>
-      <div id="chart"></div>
-    </section>
+    <Grid client:only />
   </main>
 </Layout>
 
@@ -34,7 +26,7 @@ import Card from "../components/Card.astro";
   main {
     margin: auto;
     padding: 1.5rem;
-    max-width: 60ch;
+    max-width: 1200px;
   }
   h1 {
     font-size: 3rem;
@@ -47,30 +39,5 @@ import Card from "../components/Card.astro";
     -webkit-text-fill-color: transparent;
     background-size: 400%;
     background-position: 0%;
-  }
-  .instructions {
-    line-height: 1.6;
-    margin: 1rem 0;
-    border: 1px solid rgba(var(--accent), 25%);
-    background-color: white;
-    padding: 1rem;
-    border-radius: 0.4rem;
-  }
-  .instructions code {
-    font-size: 0.875em;
-    font-weight: bold;
-    background: rgba(var(--accent), 12%);
-    color: rgb(var(--accent));
-    border-radius: 4px;
-    padding: 0.3em 0.45em;
-  }
-  .instructions strong {
-    color: rgb(var(--accent));
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 1rem;
-    padding: 0;
   }
 </style>

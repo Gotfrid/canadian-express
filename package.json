@@ -11,12 +11,16 @@
   },
   "dependencies": {
     "@astrojs/react": "^2.2.0",
+    "@nivo/bar": "^0.83.0",
+    "@nivo/core": "^0.83.0",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
     "astro": "^2.4.1",
     "astro-icon": "^0.8.0",
+    "dayjs": "^1.11.7",
     "echarts": "^5.4.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "swr": "^2.1.5"
   }
 }
