@@ -19,8 +19,10 @@
     "astro-icon": "^0.8.0",
     "dayjs": "^1.11.7",
     "echarts": "^5.4.2",
+    "echarts-for-react": "^3.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-select": "^5.7.3",
     "swr": "^2.1.5"
   }
 }

@@ -1,9 +1,16 @@
+type DrawName =
+  | "No Program Specified"
+  | "Provincial Nominee Program"
+  | "Federal Skilled Worker"
+  | "Canadian Experience Class"
+  | "Federal Skilled Trades";
+
 interface Draw {
   drawNumber: string;
   drawNumberURL: string;
   drawDate: string;
   drawDateFull: string;
-  drawName: string;
+  drawName: DrawName;
   drawSize: string;
   drawCRS: string;
   mitext: string;
