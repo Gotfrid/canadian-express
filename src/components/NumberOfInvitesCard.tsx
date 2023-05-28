@@ -6,7 +6,7 @@ export const NumberOfInvitesCard = ({ gridArea }: { gridArea: string }) => {
   const data = useContext(DataContext);
   return (
     <div className="card">
-      <h3>Total invites</h3>
+      <h3>N applicants</h3>
       <p>{getNumberOfInvites(data![0])}</p>
     </div>
   );

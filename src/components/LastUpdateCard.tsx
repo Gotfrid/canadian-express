@@ -6,7 +6,7 @@ export const LastUpdateCard = ({ gridArea }: { gridArea: string }) => {
   const data = useContext(DataContext);
   return (
     <div className="card" style={{ gridArea }}>
-      <h3>Update date</h3>
+      <h3>Draw date</h3>
       <p>{getLastSampleDate(data ?? [])}</p>
     </div>
   );
