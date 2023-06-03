@@ -10,7 +10,7 @@ export const Metric: FC<Props> = ({ gridArea, title, value }) => {
   return (
     <div className="card" style={{ gridArea }}>
       <h3>{title}</h3>
-      <p>{value}</p>
+      <p style={{ whiteSpace: "pre" }}>{value}</p>
     </div>
   );
 };

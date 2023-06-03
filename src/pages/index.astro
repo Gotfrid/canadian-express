@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 import { Grid } from "../components/Grid";
 ---
 
@@ -9,7 +8,7 @@ import { Grid } from "../components/Grid";
     <h1>
       <span class="text-gradient">Canadian Express</span>
     </h1>
-    <p>
+    <p class="description">
       This dashboard provides a convinient and user-friendly access to the latest invitation stats of the
       <a
         href="https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry.html"
@@ -39,5 +38,8 @@ import { Grid } from "../components/Grid";
     -webkit-text-fill-color: transparent;
     background-size: 400%;
     background-position: 0%;
+  }
+  .description {
+    margin-block: 1rem;
   }
 </style>

@@ -33,7 +33,7 @@ export const CurrentDistribution = ({ gridArea }: { gridArea: string }) => {
   return (
     <div className="card" style={{ gridArea }}>
       <h3>Distribution of applicants by score bracket</h3>
-      <EChartsReact option={option} style={{ height: "100%", minHeight: 300 }} />
+      <EChartsReact option={option} style={{ height: "100%", minHeight: 150 }} />
     </div>
   );
 };
