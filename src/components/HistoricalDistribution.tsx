@@ -3,11 +3,20 @@ import ReactECharts from "echarts-for-react";
 import { DataContext } from "../containers/DataContainer";
 import { useContext, useState } from "react";
 import { getCleanData } from "../lib/getCleanData";
-import ProgramSelect from "./ProgramSelect";
 import dayjs from "dayjs";
+import { useDarkMode } from "../hooks/useDarkMode";
+
+const selectOptions: { value: DrawName; label: DrawName }[] = [
+  { value: "No Program Specified", label: "No Program Specified" },
+  { value: "Provincial Nominee Program", label: "Provincial Nominee Program" },
+  { value: "Federal Skilled Worker", label: "Federal Skilled Worker" },
+  { value: "Federal Skilled Trades", label: "Federal Skilled Trades" },
+  { value: "Canadian Experience Class", label: "Canadian Experience Class" },
+];
 
 const CumulativeDistribution = ({ gridArea }: { gridArea: string }) => {
   const rawData = useContext(DataContext);
+  const mode = useDarkMode();
 
   const [program, setProgram] = useState<DrawName>("No Program Specified");
 
@@ -50,10 +59,17 @@ const CumulativeDistribution = ({ gridArea }: { gridArea: string }) => {
   return (
     <div className="card" style={{ gridArea }}>
       <div className="cumulative-title-container">
-        <h3>History of passing score by program</h3>
-        <ProgramSelect value={program} setValue={setProgram} />
+        <h3 className="text-xl font-semibold mb-1 md:mb-0">History of passing score by program</h3>
+        <select
+          className="select select-bordered select-sm md:select-md"
+          onChange={(e) => setProgram(e.target.value as DrawName)}
+        >
+          {selectOptions.map((option) => (
+            <option key={option.value}>{option.value}</option>
+          ))}
+        </select>
       </div>
-      <ReactECharts option={options} />
+      <ReactECharts option={options} theme={mode} />
     </div>
   );
 };
