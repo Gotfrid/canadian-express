@@ -1,9 +1,8 @@
-import { fixture } from "../__test__/fixtures/drawData";
-import { getCleanData } from "./getCleanData";
+import { getCleanData } from "../../lib/getCleanData";
+import { fixture } from "../fixtures/drawData";
 
 describe("getCleanData", () => {
   test("should return an array of objects with the correct properties", () => {
-    const data = fixture;
     const expected = [
       {
         date: "2023-05-10",
@@ -12,6 +11,6 @@ describe("getCleanData", () => {
         size: "589",
       },
     ];
-    expect(getCleanData(data)).toEqual(expected);
+    expect(getCleanData(fixture)).toEqual(expected);
   });
 });

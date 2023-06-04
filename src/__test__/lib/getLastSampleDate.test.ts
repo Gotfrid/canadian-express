@@ -1,5 +1,5 @@
-import { fixture } from "../__test__/fixtures/drawData";
-import { getLastSampleDate } from "./getLastSampleDate";
+import { fixture } from "../fixtures/drawData";
+import { getLastSampleDate } from "../../lib/getLastSampleDate";
 
 describe("getLastSampleDate", () => {
   test("simple distribution", () => {

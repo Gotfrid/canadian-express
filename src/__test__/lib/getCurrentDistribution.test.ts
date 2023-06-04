@@ -1,5 +1,5 @@
-import { fixture } from "../__test__/fixtures/drawData";
-import { getCurrentDistribution } from "./getCurrentDistribution";
+import { fixture } from "../fixtures/drawData";
+import { getCurrentDistribution } from "../../lib/getCurrentDistribution";
 
 describe("getCurrentDistribution", () => {
   test("simple distribution", () => {

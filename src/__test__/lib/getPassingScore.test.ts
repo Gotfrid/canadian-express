@@ -1,5 +1,5 @@
-import { fixture } from "../__test__/fixtures/drawData";
-import { getPassingScore } from "./getPassingScore";
+import { fixture } from "../fixtures/drawData";
+import { getPassingScore } from "../../lib/getPassingScore";
 
 describe("getPassingScore", () => {
   test("should return the passing score", () => {

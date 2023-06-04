@@ -1,5 +1,5 @@
-import { fixture } from "../__test__/fixtures/drawData";
-import { getDrawSize } from "./getDrawSize";
+import { fixture } from "../fixtures/drawData";
+import { getDrawSize } from "../../lib/getDrawSize";
 
 describe("getDrawSize", () => {
   test("should return the draw size", () => {
