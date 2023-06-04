@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 
 export const useDarkMode = () => {
-  const [mode, setMode] = useState<"dark" | "light">("dark");
+  const [mode, setMode] = useState<"dark" | "light">(
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+  );
 
   useEffect(() => {
     const unsubscribe = window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
