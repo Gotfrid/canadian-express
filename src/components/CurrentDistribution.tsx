@@ -1,26 +1,36 @@
-import { useContext } from "react";
-import { DataContext } from "../containers/DataContainer";
-import { getCurrentDistribution } from "../lib/getCurrentDistribution";
-import EChartsReact from "echarts-for-react";
 import type { EChartsOption } from "echarts";
+import EChartsReact from "echarts-for-react";
+import { useContext, useState } from "react";
+
+import { DataContext } from "../containers/DataContainer";
 import { useDarkMode } from "../hooks/useDarkMode";
+import { getCurrentDistribution } from "../lib/getCurrentDistribution";
+
 import { Card } from "./Card";
 
 export const CurrentDistribution = ({ gridArea }: { gridArea: string }) => {
   const rawData = useContext(DataContext);
   const mode = useDarkMode();
+  const [view, setView] = useState<"Simple" | "Detailed">("Simple");
 
-  const data = getCurrentDistribution(rawData!);
+  const data = getCurrentDistribution(rawData!, view);
 
   const option: EChartsOption = {
-    grid: { top: 20, right: 10, bottom: 20, left: 10 },
+    grid: { top: 20, right: 10, bottom: 50, left: 35 },
     xAxis: {
       type: "category",
       data: data.map(({ id }) => id),
+      name: "Score Bracket",
+      nameLocation: "middle",
+      nameGap: 30,
     },
     yAxis: {
       type: "value",
-      show: false,
+      show: true,
+      name: "Number of Applicants",
+      nameLocation: "middle",
+      axisLabel: { show: false },
+      splitLine: { show: false },
     },
     series: {
       type: "bar",
@@ -34,7 +44,17 @@ export const CurrentDistribution = ({ gridArea }: { gridArea: string }) => {
   };
 
   return (
-    <Card gridArea={gridArea} title="Distribution of applicants">
+    <Card gridArea={gridArea} title={null}>
+      <div className="cumulative-title-container">
+        <h3 className="text-xl font-semibold card-title mb-1">Distribution of applicants</h3>
+        <select
+          className="select select-bordered select-sm max-w-xs mb-4"
+          onChange={(e) => setView(e.target.value as "Simple" | "Detailed")}
+        >
+          <option>Simple</option>
+          <option>Detailed</option>
+        </select>
+      </div>
       <EChartsReact option={option} style={{ height: "100%", minHeight: 250 }} theme={mode} />
     </Card>
   );

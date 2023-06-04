@@ -19,11 +19,21 @@ const mapping = {
   dd18: "Total",
 };
 
-export const getCurrentDistribution = (data: Draw[]) => {
-  // const bracketKeys = Object.keys(data[0]).filter((key) => key.startsWith("dd"));
+export const getCurrentDistribution = (data: Draw[], mode: "Simple" | "Detailed") => {
+  let bracketKeys: string[];
 
-  // Simplified view
-  const bracketKeys = ["dd17", "dd16", "dd15", "dd9", "dd3", "dd2", "dd1"];
+  if (mode === "Simple") {
+    bracketKeys = ["dd17", "dd16", "dd15", "dd9", "dd3", "dd2", "dd1"];
+  } else {
+    // prettier-ignore
+    bracketKeys = [
+      "dd17", "dd16", "dd15",
+      "dd14", "dd13", "dd12",
+      "dd11", "dd10", "dd8",
+      "dd7",  "dd6",  "dd5",
+      "dd4",  "dd2",  "dd1",
+    ];
+  }
 
   return bracketKeys.map((key) => ({
     id: mapping[key as keyof typeof mapping],
