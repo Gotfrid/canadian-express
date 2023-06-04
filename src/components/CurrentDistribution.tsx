@@ -2,7 +2,7 @@ import type { EChartsOption } from "echarts";
 import EChartsReact from "echarts-for-react";
 import { useContext, useState } from "react";
 
-import { DataContext } from "../containers/DataContainer";
+import { DataContext } from "../context/DataContext";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { getCurrentDistribution } from "../lib/getCurrentDistribution";
 

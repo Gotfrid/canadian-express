@@ -1,6 +1,6 @@
 import type { EChartsOption } from "echarts";
 import ReactECharts from "echarts-for-react";
-import { DataContext } from "../containers/DataContainer";
+import { DataContext } from "../context/DataContext";
 import { useContext, useState } from "react";
 import { getCleanData } from "../lib/getCleanData";
 import dayjs from "dayjs";

@@ -1,7 +1,8 @@
 import * as echarts from "echarts";
 import { useContext } from "react";
 
-import { DataContainer, DataContext } from "../containers/DataContainer";
+import { DataContainer } from "../containers/DataContainer";
+import { DataContext } from "../context/DataContext";
 import { getDrawSize } from "../lib/getDrawSize";
 import { getLastSampleDate } from "../lib/getLastSampleDate";
 import { getPassingScore } from "../lib/getPassingScore";
