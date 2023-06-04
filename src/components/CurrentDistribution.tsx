@@ -4,6 +4,7 @@ import { getCurrentDistribution } from "../lib/getCurrentDistribution";
 import EChartsReact from "echarts-for-react";
 import type { EChartsOption } from "echarts";
 import { useDarkMode } from "../hooks/useDarkMode";
+import { Card } from "./Card";
 
 export const CurrentDistribution = ({ gridArea }: { gridArea: string }) => {
   const rawData = useContext(DataContext);
@@ -33,9 +34,8 @@ export const CurrentDistribution = ({ gridArea }: { gridArea: string }) => {
   };
 
   return (
-    <div className="card" style={{ gridArea }}>
-      <h3 className="text-xl font-semibold">Distribution of applicants by score bracket</h3>
+    <Card gridArea={gridArea} title="Distribution of applicants">
       <EChartsReact option={option} style={{ height: "100%", minHeight: 250 }} theme={mode} />
-    </div>
+    </Card>
   );
 };

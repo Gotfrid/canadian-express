@@ -1,4 +1,5 @@
 import type { FC } from "react";
+import { Card } from "./Card";
 
 interface Props {
   gridArea: string;
@@ -8,9 +9,8 @@ interface Props {
 
 export const Metric: FC<Props> = ({ gridArea, title, value }) => {
   return (
-    <div className="card" style={{ gridArea }}>
-      <h3 className="text-xl font-semibold card-title">{title}</h3>
-      <p style={{ whiteSpace: "pre" }}>{value}</p>
-    </div>
+    <Card gridArea={gridArea} title={title}>
+      <p className="text sm:text-3xl font-extralight my-0 sm:my-2 whitespace-pre">{value}</p>
+    </Card>
   );
 };

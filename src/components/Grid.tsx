@@ -1,11 +1,17 @@
-import { DataContainer, DataContext } from "../containers/DataContainer";
-import CumulativeDistribution from "./HistoricalDistribution";
-import { CurrentDistribution } from "./CurrentDistribution";
-import { Metric } from "./Metric";
+import * as echarts from "echarts";
 import { useContext } from "react";
+
+import { DataContainer, DataContext } from "../containers/DataContainer";
 import { getDrawSize } from "../lib/getDrawSize";
 import { getLastSampleDate } from "../lib/getLastSampleDate";
 import { getPassingScore } from "../lib/getPassingScore";
+import { chalk } from "../misc/echartThemes";
+
+import { CurrentDistribution } from "./CurrentDistribution";
+import CumulativeDistribution from "./HistoricalDistribution";
+import { Metric } from "./Metric";
+
+echarts.registerTheme("dark", chalk);
 
 const GridContent = () => {
   const data = useContext(DataContext);

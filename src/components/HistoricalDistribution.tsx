@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { getCleanData } from "../lib/getCleanData";
 import dayjs from "dayjs";
 import { useDarkMode } from "../hooks/useDarkMode";
+import { Card } from "./Card";
 
 const selectOptions: { value: DrawName; label: DrawName }[] = [
   { value: "No Program Specified", label: "No Program Specified" },
@@ -57,11 +58,11 @@ const CumulativeDistribution = ({ gridArea }: { gridArea: string }) => {
   };
 
   return (
-    <div className="card" style={{ gridArea }}>
+    <Card gridArea={gridArea} title={null}>
       <div className="cumulative-title-container">
-        <h3 className="text-xl font-semibold mb-1 md:mb-0">History of passing score by program</h3>
+        <h3 className="text-xl font-semibold card-title mb-1">History of passing score</h3>
         <select
-          className="select select-bordered select-sm md:select-md"
+          className="select select-bordered select-sm max-w-xs mb-4"
           onChange={(e) => setProgram(e.target.value as DrawName)}
         >
           {selectOptions.map((option) => (
@@ -70,7 +71,7 @@ const CumulativeDistribution = ({ gridArea }: { gridArea: string }) => {
         </select>
       </div>
       <ReactECharts option={options} theme={mode} />
-    </div>
+    </Card>
   );
 };
 

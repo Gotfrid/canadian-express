@@ -31,15 +31,6 @@ const { title } = Astro.props;
     background-color: #f6f6f6;
   }
 
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-  }
-
-  p {
-    margin: 0;
-  }
-
   .grid {
     display: grid;
     grid-template-areas:
@@ -51,13 +42,6 @@ const { title } = Astro.props;
     gap: 1rem;
   }
 
-  .card {
-    line-height: 1.6;
-    border: 1px solid rgba(var(--accent), 25%);
-    padding: 1rem;
-    border-radius: 0.4rem;
-  }
-
   .cumulative-title-container {
     display: flex;
     justify-content: space-between;
@@ -65,7 +49,7 @@ const { title } = Astro.props;
     margin-bottom: 1rem;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 640px) {
     .grid {
       grid-template-areas:
         "update size passing"
