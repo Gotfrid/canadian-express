@@ -42,10 +42,10 @@ describe("getCleanData", () => {
     ];
     const expected = [
       {
-        date: "2020-01-01",
-        score: "123",
-        size: "123",
-        name: "Test",
+        date: "2023-05-10",
+        name: "Provincial Nominee Program",
+        score: "691",
+        size: "589",
       },
     ];
     expect(getCleanData(data)).toEqual(expected);
