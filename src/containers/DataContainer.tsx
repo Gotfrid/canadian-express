@@ -1,13 +1,11 @@
-import useSWR from "swr";
-import { ReactNode, createContext } from "react";
-
-const fetcher = (url: string): Promise<Draw[]> => fetch(url).then((res) => res.json().then((d) => d.rounds));
-
-export const DataContext = createContext<Draw[] | undefined>(undefined);
+import type { ReactNode } from "react";
+import { useDrawData } from "../hooks/useDrawData";
+import { DataContext } from "../context/DataContext";
 
 export const DataContainer = ({ children }: { children: ReactNode }) => {
-  const { data, error, isLoading } = useSWR(import.meta.env.PUBLIC_DATA_URL, fetcher);
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
+  const data = useDrawData();
+  if (data === undefined) {
+    return <div>Loading...</div>;
+  }
   return <DataContext.Provider value={data}>{children}</DataContext.Provider>;
 };
