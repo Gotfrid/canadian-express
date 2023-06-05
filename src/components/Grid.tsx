@@ -1,5 +1,5 @@
 import * as echarts from "echarts";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { DataContainer } from "../containers/DataContainer";
 import { DataContext } from "../context/DataContext";
@@ -29,6 +29,9 @@ const GridContent = () => {
 };
 
 export const Grid = () => {
+  useEffect(() => {
+    document.getElementById("loading-placeholder")?.style.setProperty("display", "none");
+  });
   return (
     <div className="grid">
       <DataContainer>
