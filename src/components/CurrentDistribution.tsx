@@ -7,13 +7,24 @@ import { useDarkMode } from "../hooks/useDarkMode";
 import { getCurrentDistribution } from "../lib/getCurrentDistribution";
 
 import { Card } from "./Card";
+import { Loading } from "./Loading";
 
 export const CurrentDistribution = ({ gridArea }: { gridArea: string }) => {
   const rawData = useContext(DataContext);
   const mode = useDarkMode();
   const [view, setView] = useState<"Simple" | "Detailed">("Simple");
 
-  const data = getCurrentDistribution(rawData!, view);
+  if (rawData === undefined) {
+    return (
+      <Card gridArea={gridArea} title="Distribution of applicants">
+        <div className="w-full h-full flex items-center justify-center">
+          <Loading />
+        </div>
+      </Card>
+    );
+  }
+
+  const data = getCurrentDistribution(rawData, view);
 
   const option: EChartsOption = {
     grid: { top: 20, right: 10, bottom: 50, left: 35 },

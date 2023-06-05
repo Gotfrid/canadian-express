@@ -6,6 +6,7 @@ import { getCleanData } from "../lib/getCleanData";
 import dayjs from "dayjs";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { Card } from "./Card";
+import { Loading } from "./Loading";
 
 const selectOptions: { value: DrawName; label: DrawName }[] = [
   { value: "No Program Specified", label: "No Program Specified" },
@@ -21,7 +22,16 @@ const CumulativeDistribution = ({ gridArea }: { gridArea: string }) => {
 
   const [program, setProgram] = useState<DrawName>("No Program Specified");
 
-  const data = getCleanData(rawData!)
+  if (rawData === undefined) {
+    return (
+      <Card gridArea={gridArea} title="History of passing score">
+        <div className="w-full h-full flex items-center justify-center" style={{ minHeight: 250 }}>
+          <Loading />
+        </div>
+      </Card>
+    );
+  }
+  const data = getCleanData(rawData)
     .filter(({ name }) => name === program)
     .reverse();
 
@@ -70,7 +80,7 @@ const CumulativeDistribution = ({ gridArea }: { gridArea: string }) => {
           ))}
         </select>
       </div>
-      <ReactECharts option={options} theme={mode} />
+      <ReactECharts option={options} theme={mode} style={{ height: "100%", minHeight: 250 }} />
     </Card>
   );
 };

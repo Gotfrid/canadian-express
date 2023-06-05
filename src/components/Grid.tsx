@@ -19,9 +19,9 @@ const GridContent = () => {
 
   return (
     <>
-      <Metric gridArea="update" title="Date" value={data ? getLastSampleDate(data) : "Loading..."} />
-      <Metric gridArea="size" title="Size" value={data ? getDrawSize(data[0]) : "Loading..."} />
-      <Metric gridArea="passing" title="Score" value={data ? getPassingScore(data[0]) : "Loading..."} />
+      <Metric gridArea="update" title="Date" value={getLastSampleDate(data)} />
+      <Metric gridArea="size" title="Size" value={getDrawSize(data)} />
+      <Metric gridArea="passing" title="Score" value={getPassingScore(data)} />
       <CurrentDistribution gridArea="distribution" />
       <CumulativeDistribution gridArea="cumulative" />
     </>
