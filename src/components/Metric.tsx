@@ -14,7 +14,7 @@ export const Metric: FC<Props> = ({ gridArea, title, value }) => {
       {value === undefined ? (
         <Loading />
       ) : (
-        <p className="text sm:text-3xl font-extralight my-0 sm:my-2 whitespace-pre">{value}</p>
+        <p className="text font-extralight my-0 sm:max-w-xs sm:text-3xl sm:my-2 ">{value}</p>
       )}
     </Card>
   );
